@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
+import SiteLayout from "./layouts/SiteLayout";
 
 function Home() {
   return (
-    <main className="home">
-      <section className="hero">
+    <section className="home">
+      <div className="hero">
         <div className="hero-overlay" />
 
         <div className="hero-content">
@@ -20,11 +21,17 @@ function Home() {
           </p>
 
           <div className="hero-buttons">
-            <a href="/book-consultation" className="button button-primary">
+            <a
+              href="/book-consultation"
+              className="button button-primary"
+            >
               Schedule Consultation
             </a>
 
-            <a href="/services" className="button button-secondary">
+            <a
+              href="/services"
+              className="button button-secondary"
+            >
               Explore Services
             </a>
           </div>
@@ -51,34 +58,31 @@ function Home() {
             <span>Advisory Network</span>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
 
 function Placeholder() {
   return (
-    <main className="page">
+    <section className="page">
       <p className="eyebrow">ASTRONIS</p>
-
       <h1>Coming Next</h1>
-
       <p>
-        This page will be built in the next steps.
+        This section of the ASTRONIS platform will be built in the
+        next stage.
       </p>
-    </main>
+    </section>
   );
 }
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-
-      <Route
-        path="*"
-        element={<Placeholder />}
-      />
+      <Route element={<SiteLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Placeholder />} />
+      </Route>
     </Routes>
   );
 }
